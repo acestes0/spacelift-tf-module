@@ -25,5 +25,4 @@ jobs:
           SPACELIFT_API_KEY_ID: "${{ secrets.SPACELIFT_API_KEY_ID }}"
           SPACELIFT_API_KEY_SECRET: "${{ secrets.SPACELIFT_API_KEY_SECRET }}"
         run: |
-          spacectl whoami
           spacectl module list
