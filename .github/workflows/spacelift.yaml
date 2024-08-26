@@ -24,9 +24,9 @@ jobs:
 
       - name: List modules
         env:
-          SPACELIFT_API_KEY_ENDPOINT: https://$SPACELIFT_APP_DOMAIN
-          SPACELIFT_API_KEY_ID: ${{ secrets.SPACELIFT_API_KEY_ID }}
-          SPACELIFT_API_KEY_SECRET: ${{ secrets.SPACELIFT_API_KEY_SECRET }}
+          SPACELIFT_API_KEY_ENDPOINT: "https://$SPACELIFT_APP_DOMAIN"
+          SPACELIFT_API_KEY_ID: "${{ secrets.SPACELIFT_API_KEY_ID }}"
+          SPACELIFT_API_KEY_SECRET: "${{ secrets.SPACELIFT_API_KEY_SECRET }}"
         run: |
           spacectl whoami
           spacectl module list
