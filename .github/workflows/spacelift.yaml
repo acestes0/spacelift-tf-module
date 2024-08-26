@@ -1,4 +1,4 @@
-name: Spacelift stacks
+name: Spacelift
 
 on: [push]
 
@@ -16,13 +16,13 @@ jobs:
     steps:
       - name: Generate token
         run: |
-          OIDC_TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$SPACELIFT_APP_DOMAIN" | jq --raw-output '.value')
+          OIDC_TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=halcyon.app.spacelift.io" | jq --raw-output '.value')
           echo "OIDC_TOKEN=$OIDC_TOKEN" >> $GITHUB_ENV
 
       - name: Install spacectl
         uses: spacelift-io/setup-spacectl@main
 
-      - name: List stacks
+      - name: List modules
         env:
           SPACELIFT_API_KEY_ENDPOINT: https://$SPACELIFT_APP_DOMAIN
           SPACELIFT_API_KEY_ID: ${{ secrets.SPACELIFT_API_KEY_ID }}
