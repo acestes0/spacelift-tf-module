@@ -2,9 +2,6 @@ name: Spacelift
 
 on: [push]
 
-env:
-  SPACELIFT_APP_DOMAIN: "halcyon.app.spacelift.io"
-
 jobs:
   test:
     name: Spacelift
@@ -24,7 +21,7 @@ jobs:
 
       - name: List modules
         env:
-          SPACELIFT_API_KEY_ENDPOINT: "https://$SPACELIFT_APP_DOMAIN"
+          SPACELIFT_API_KEY_ENDPOINT: "https://halcyon.app.spacelift.io"
           SPACELIFT_API_KEY_ID: "${{ secrets.SPACELIFT_API_KEY_ID }}"
           SPACELIFT_API_KEY_SECRET: "${{ secrets.SPACELIFT_API_KEY_SECRET }}"
         run: |
